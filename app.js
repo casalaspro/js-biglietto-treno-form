@@ -89,6 +89,7 @@ Inserire bottone
 */
 
 let elementAge = document.getElementById('age'); //Element | Null
+let elementKm = document.getElementById('kilometers'); //Element | Null
 console.dir(elementAge);
 let userAge, userKm;
 
@@ -100,6 +101,8 @@ console.dir(elementButton);
 
 elementButton.addEventListener('click', function(){
   userAge = elementAge.valueAsNumber;
-  console.log(userAge);
+  userKm = elementKm.value;
+  console.log("User age: " + userAge);
+  console.log("User distance: " + userKm);
 });
 
