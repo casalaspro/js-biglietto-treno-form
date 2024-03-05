@@ -11,3 +11,7 @@ body{
 .form label{
   color: #B91647;
 }
+
+.ticket_passeggero{
+  min-height: 150px;
+}
