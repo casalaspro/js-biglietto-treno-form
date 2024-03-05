@@ -88,5 +88,18 @@ Inserire bottone
 
 */
 
-let elementName = document.getElementById('name');
-console.dir(elementName);
+let elementAge = document.getElementById('age'); //Element | Null
+console.dir(elementAge);
+let userAge, userKm;
+
+console.log(userAge);
+
+let elementButton = document.querySelector('[value="Send"]');
+
+console.dir(elementButton);
+
+elementButton.addEventListener('click', function(){
+  userAge = elementAge.valueAsNumber;
+  console.log(userAge);
+});
+
