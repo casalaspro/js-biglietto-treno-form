@@ -107,25 +107,28 @@ let discountFinal, wholePrice, priceFinal;
 
 
 elementButton.addEventListener('click', function(){
-  userAge = elementAge.valueAsNumber; //number int
+  userAge = elementAge.value; //number int
   userKm = parseFloat(elementKm.value); //number float
-  console.log("User age: " + userAge);
+
+  console.dir();
+
+  console.log("User discount: " + userAge);
   console.log("User distance: " + userKm);
 
   wholePrice = userKm * priceKm;  //number float
 
   if(
-    !isNaN(userAge) &&
+    // !isNaN(userAge) &&
+    userAge === "under18" &&
     !isNaN(userKm) &&
-    userKm > 0 &&
-    userAge < 18
+    userKm > 0
   ){
     discountFinal = wholePrice / 100 * discountUnder18;
   }else if(
-    !isNaN(userAge) &&
+    // !isNaN(userAge) &&
     !isNaN(userKm) &&
     userKm > 0 &&
-    userAge >= 65
+    userAge === "over65"
   ){
     discountFinal = wholePrice / 100 * discountOver65;
   }
