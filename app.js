@@ -132,7 +132,7 @@ elementButton.addEventListener('click', function(){
 
   priceFinal = wholePrice - discountFinal;
 
-  console.log("Your tiket costs " + priceFinal.toFixed(2) + "€");
+  console.log("Your tiket costs €" + priceFinal.toFixed(2));
 
 
 });
