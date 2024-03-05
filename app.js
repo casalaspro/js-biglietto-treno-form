@@ -149,10 +149,10 @@ elementButton.addEventListener('click', function(){
 
   console.log("Your tiket costs €" + priceFinal.toFixed(2));
 
-  let ticketElement = document.querySelector('.ticket');
+  let ticketElement = document.querySelector('.train-form .container');
   
   if(userName && userKm && userAge){
-    ticketElement.innerHTML = `
+    ticketElement.innerHTML += `
   <h2 class="text-center text-light my-3">IL TUO BIGLIETTO</h1>
 
         <div class="ticket bg-white py-3 px-4 rounded">
