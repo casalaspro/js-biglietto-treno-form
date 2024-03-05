@@ -90,12 +90,14 @@ Inserire bottone
 
 let elementAge = document.getElementById('age'); //Element | Null
 let elementKm = document.getElementById('kilometers'); //Element | Null
+let elementName = document.getElementById('name');
 console.dir(elementAge);
-let userAge, userKm;
+let userAge, userKm, userName;
 
 console.log(userAge);
 
 let elementButton = document.querySelector('[value="Send"]');
+
 
 console.dir(elementButton);
 
@@ -109,6 +111,9 @@ let discountFinal, wholePrice, priceFinal;
 elementButton.addEventListener('click', function(){
   userAge = elementAge.value; //number int
   userKm = parseFloat(elementKm.value); //number float
+  userName = elementName.value;
+
+  let tipoBiglietto = "Biglietto Standard";
 
   console.dir();
 
@@ -124,6 +129,7 @@ elementButton.addEventListener('click', function(){
     userKm > 0
   ){
     discountFinal = wholePrice / 100 * discountUnder18;
+    tipoBiglietto = "Biglietto under 18"
   }else if(
     // !isNaN(userAge) &&
     !isNaN(userKm) &&
@@ -131,11 +137,52 @@ elementButton.addEventListener('click', function(){
     userAge === "over65"
   ){
     discountFinal = wholePrice / 100 * discountOver65;
+    tipoBiglietto = "Biglietto over 65"
   }
+
+  let
+
+
+
 
   priceFinal = wholePrice - discountFinal;
 
   console.log("Your tiket costs €" + priceFinal.toFixed(2));
+
+  let ticketElement = document.querySelector('.ticket');
+  
+  if(userName && userKm && userAge){
+    ticketElement.innerHTML = `
+  <h2 class="text-center text-light my-3">IL TUO BIGLIETTO</h1>
+
+        <div class="ticket bg-white py-3 px-4 rounded">
+          <div class="row">
+            <h4 class="my-3 fw-bold">DETTAGLIO PASSEGGERI</h4>
+            <div class="col-4 text-light bg-secondary p-3 ticket_passeggero">
+              <h3>Nome passeggero</h3>
+              <h4>${userName}</h4>
+            </div>
+            <div class="col-3 d-flex flex-column justify-content-between py-4 border-top border-bottom border-secondary">
+              <h6 class="ticket-offerta fw-bold">Offerta</h6>
+              <p class="m-0">${tipoBiglietto}</p>
+            </div>
+            <div class="col d-flex flex-column justify-content-between py-4 border-top border-bottom border-secondary">
+              <h6 class="ticket-carrozza fw-bold">Carrozza</h6>
+              <p class="m-0">24</p>
+            </div>
+            <div class="col d-flex flex-column justify-content-between py-4 border-top border-bottom border-secondary">
+              <h6 class="ticket-codice fw-bold">Codice CP</h6>
+              <p class="m-0">17652864</p>
+            </div>
+            <div class="col-2 d-flex flex-column justify-content-between py-4 border-top border-end border-bottom border-secondary">
+              <h6 class="ticket-biglietto fw-bold">Costo Biglietto</h6>
+              <p class="m-0">€ ${priceFinal.toFixed(2)}</p>
+            </div>
+
+          </div>
+        </div>
+  `
+  }
 
 
 });
