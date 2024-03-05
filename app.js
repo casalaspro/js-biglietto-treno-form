@@ -99,10 +99,47 @@ let elementButton = document.querySelector('[value="Send"]');
 
 console.dir(elementButton);
 
+const priceKm = 0.21; //float
+const discountUnder18 = 20; //number
+const discountOver65 = 40;  //number
+let discountFinal, wholePrice, priceFinal;
+
+
+
 elementButton.addEventListener('click', function(){
-  userAge = elementAge.valueAsNumber;
-  userKm = elementKm.value;
+  userAge = elementAge.valueAsNumber; //number int
+  userKm = parseFloat(elementKm.value); //number float
   console.log("User age: " + userAge);
   console.log("User distance: " + userKm);
+
+  wholePrice = userKm * priceKm;  //number float
+
+  if(
+    !isNaN(userAge) &&
+    !isNaN(userKm) &&
+    userKm > 0 &&
+    userAge < 18
+  ){
+    discountFinal = wholePrice / 100 * discountUnder18;
+  }else if(
+    !isNaN(userAge) &&
+    !isNaN(userKm) &&
+    userKm > 0 &&
+    userAge >= 65
+  ){
+    discountFinal = wholePrice / 100 * discountOver65;
+  }
+
+  priceFinal = wholePrice - discountFinal;
+
+  console.log("Your tiket costs " + priceFinal.toFixed(2) + "€");
+
+
 });
+
+
+
+
+
+
 
