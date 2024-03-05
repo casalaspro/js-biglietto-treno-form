@@ -91,6 +91,7 @@ Inserire bottone
 let elementAge = document.getElementById('age'); //Element | Null
 let elementKm = document.getElementById('kilometers'); //Element | Null
 let elementName = document.getElementById('name');
+let elementButtonRefresh = document.getElementById('refresh');
 console.dir(elementAge);
 let userAge, userKm, userName;
 
@@ -105,6 +106,7 @@ const priceKm = 0.21; //float
 const discountUnder18 = 20; //number
 const discountOver65 = 40;  //number
 let discountFinal, wholePrice, priceFinal;
+discountFinal = 0;
 
 
 
@@ -140,8 +142,6 @@ elementButton.addEventListener('click', function(){
     tipoBiglietto = "Biglietto over 65"
   }
 
-  let
-
 
 
 
@@ -150,6 +150,8 @@ elementButton.addEventListener('click', function(){
   console.log("Your tiket costs €" + priceFinal.toFixed(2));
 
   let ticketElement = document.querySelector('.train-form .container');
+
+  console.dir(location);
   
   if(userName && userKm && userAge){
     ticketElement.innerHTML += `
@@ -186,6 +188,13 @@ elementButton.addEventListener('click', function(){
 
 
 });
+
+elementButtonRefresh.addEventListener('click', function(){
+  location.reload();
+  console.log('RIAVVIO');
+});
+
+
 
 
 
